@@ -70,6 +70,8 @@ int main(void)
 
     SystemClock_Config();
     uart_device_init(DEV_UART1);
+    
+    uart_write(DEV_UART1, "uart1 init ok...", strlen("uart1 init ok..."));
 
     for (;;)
     {

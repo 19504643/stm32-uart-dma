@@ -18,7 +18,7 @@ void uart1_dma_init(uint8_t *mem_addr, uint32_t mem_size)
     GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
     GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-    GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+    GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
     GPIO_InitStruct.Alternate = LL_GPIO_AF_7;
     LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
     
@@ -32,7 +32,7 @@ void uart1_dma_init(uint8_t *mem_addr, uint32_t mem_size)
     NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 2, 0));
     NVIC_EnableIRQ(USART1_IRQn);
 
-    UART_InitStruct.BaudRate = 1500000;
+    UART_InitStruct.BaudRate = 115200UL;
     UART_InitStruct.DataWidth = LL_USART_DATAWIDTH_8B;
     UART_InitStruct.StopBits = LL_USART_STOPBITS_1;
     UART_InitStruct.Parity = LL_USART_PARITY_NONE;
